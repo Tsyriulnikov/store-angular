@@ -8,6 +8,10 @@ import {CatalogComponent} from './header/catalog/catalog.component';
 import {ThemeComponent} from './header/theme/theme.component';
 import {ButtonModule} from "primeng/button";
 import {SplitButtonModule} from "primeng/splitbutton";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {InputTextModule} from "primeng/inputtext";
+import {RippleModule} from "primeng/ripple";
+
 
 
 @NgModule({
@@ -25,7 +29,10 @@ import {SplitButtonModule} from "primeng/splitbutton";
   imports: [
     CommonModule,
     ButtonModule,
-    SplitButtonModule
+    SplitButtonModule,
+    BrowserAnimationsModule,
+    InputTextModule,
+    RippleModule
   ]
 })
 export class HeaderModule {
