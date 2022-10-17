@@ -11,6 +11,9 @@ import {ButtonModule} from "primeng/button";
   declarations: [
     CardProductComponent
   ],
+  exports: [
+    CardProductComponent
+  ],
   imports: [
     CommonModule,
     CardModule,
