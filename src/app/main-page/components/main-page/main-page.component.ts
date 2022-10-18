@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MainPageService} from "../../sercices/main-page.service";
+import {GetProductsResponse} from "../../models/main-page.models";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-main-page',
@@ -7,17 +9,14 @@ import {MainPageService} from "../../sercices/main-page.service";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  products: any = []
+  allProducts$?: Observable<GetProductsResponse[]>
 
   constructor(private mainPageService: MainPageService) {
   }
 
   ngOnInit(): void {
+    this.allProducts$=this.mainPageService.products$
     this.mainPageService.getProducts()
-      .subscribe(res => {
-        this.products = res;
-      })
-
   }
 
 }

@@ -1,1 +1,4 @@
-<app-card-product></app-card-product>
+<app-card-product
+  *ngFor="let prod of allProducts$ | async"
+  [prod]="prod"
+></app-card-product>

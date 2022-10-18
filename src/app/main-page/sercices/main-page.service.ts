@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs";
+import {BehaviorSubject, map} from "rxjs";
+import {environment} from "../../../environments/environment";
+import {GetProductsResponse} from "../models/main-page.models";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainPageService {
+  products$ = new BehaviorSubject<GetProductsResponse[]>([])
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-getProducts(){
-  return this.http.get<any>("https://api.escuelajs.co/api/v1/products")
-    .pipe(map((res:any)=>{
-      return res;
-    }))
-}
+  getProducts() {
+    this.http
+      .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
+      .subscribe((products: GetProductsResponse[]) => {
+        this.products$.next(products)
+      })
+  }
 }
