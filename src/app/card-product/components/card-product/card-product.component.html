@@ -1,10 +1,13 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
+<p-card styleClass="p-card-shadow card-container">
   <ng-template pTemplate="header">
-<!--    <img alt="Card" src="assets/showcase/images/usercard.png">-->
+    <img alt="Card" [src]=prod.images[1]>
+
   </ng-template>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+
+  <h3>{{prod.price}}$</h3>
+  <h3>{{prod.title}}</h3>
+
   <ng-template pTemplate="footer">
-    <p-button label="In cart" icon="pi pi-check"></p-button>
-    </ng-template>
+    <p-button label="Small" icon="pi pi-check" styleClass="p-button-sm" class="cart-button"></p-button>
+  </ng-template>
 </p-card>
