@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {CardProductComponent} from "./components/card-product/card-product.component";
 import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
+import {DataViewModule} from "primeng/dataview";
+import {DropdownModule} from "primeng/dropdown";
 
 
 
@@ -17,7 +19,9 @@ import {ButtonModule} from "primeng/button";
   imports: [
     CommonModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    DataViewModule,
+    DropdownModule
   ]
 })
 export class CardProductModule { }
