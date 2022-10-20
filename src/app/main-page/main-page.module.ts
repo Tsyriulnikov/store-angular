@@ -7,6 +7,7 @@ import {CardProductModule} from "../card-product/card-product.module";
 
 
 
+
 @NgModule({
   declarations: [
 
@@ -19,7 +20,7 @@ import {CardProductModule} from "../card-product/card-product.module";
     CommonModule,
     CardModule,
     ButtonModule,
-    CardProductModule
+    CardProductModule,
   ]
 })
 export class MainPageModule { }
