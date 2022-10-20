@@ -6,12 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  valCheck: string[] = ['remember'];
-  password!: string;
+
+  displayModal?: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showModalDialog() {
+    this.displayModal = true;
+  }
 }

@@ -1,6 +1,23 @@
 <div style="display:inline-flex">
   <button pButton pRipple type="button" icon="pi pi-sign-in"
-          class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
+          class="p-button-rounded p-button-secondary p-button-text p-button-lg"
+          (click)="showModalDialog()"
+  ></button>
+
+  <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+            [draggable]="false" [resizable]="false">
+    <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-dialog>
+
+
+
+
+
   <button pButton pRipple type="button" icon="pi pi-box"
           class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
   <button pButton pRipple type="button" icon="pi pi-heart"

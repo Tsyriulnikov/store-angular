@@ -11,6 +11,7 @@ import {SplitButtonModule} from "primeng/splitbutton";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
+import {DialogModule} from "primeng/dialog";
 
 
 
@@ -26,14 +27,15 @@ import {RippleModule} from "primeng/ripple";
   exports: [
     HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    ButtonModule,
-    SplitButtonModule,
-    BrowserAnimationsModule,
-    InputTextModule,
-    RippleModule
-  ]
+    imports: [
+        CommonModule,
+        ButtonModule,
+        SplitButtonModule,
+        BrowserAnimationsModule,
+        InputTextModule,
+        RippleModule,
+        DialogModule
+    ]
 })
 export class HeaderModule {
 }

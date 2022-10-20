@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
-import {PasswordModule} from "primeng/password";
-import {CheckboxModule} from "primeng/checkbox";
+import {ButtonModule} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
 
 
 @NgModule({
@@ -16,8 +16,9 @@ import {CheckboxModule} from "primeng/checkbox";
   imports: [
     CommonModule,
     FormsModule,
-    PasswordModule,
-    CheckboxModule,
+    ButtonModule,
+    DialogModule,
+
   ]
 })
 export class AuthModule { }
