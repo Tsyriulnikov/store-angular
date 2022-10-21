@@ -12,6 +12,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
 import {DialogModule} from "primeng/dialog";
+import { LoginComponent } from './header/header-tools/login/login.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {PasswordModule} from "primeng/password";
 
 
 
@@ -22,7 +25,8 @@ import {DialogModule} from "primeng/dialog";
     SearchComponent,
     HeaderToolsComponent,
     CatalogComponent,
-    ThemeComponent
+    ThemeComponent,
+    LoginComponent
   ],
   exports: [
     HeaderComponent
@@ -34,7 +38,9 @@ import {DialogModule} from "primeng/dialog";
         BrowserAnimationsModule,
         InputTextModule,
         RippleModule,
-        DialogModule
+        DialogModule,
+        ReactiveFormsModule,
+        PasswordModule
     ]
 })
 export class HeaderModule {
