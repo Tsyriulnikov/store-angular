@@ -38,8 +38,6 @@
       <div *ngIf="password!.errors?.['minlength']">Name must be at least 3 characters long.</div>
     </div>
 
-    <button pButton type="submit" [disabled]="loginForm.invalid" class="submit-button">
-    <span>Log in</span>
-    </button>
+    <button pButton type="submit" [disabled]="loginForm.invalid" class="submit-button" label="Log in"></button>
   </form>
 </div>
