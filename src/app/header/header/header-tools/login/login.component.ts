@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+import {AuthService} from "../../../../core/services/auth.service";
+
 // import { AuthService } from '../../../core/services/auth.service'
 @Component({
   selector: 'app-login',
@@ -19,10 +21,11 @@ export class LoginComponent {
       nonNullable: true,
       validators: [Validators.required, Validators.minLength(3)],
     }),
-    rememberMe: new FormControl<boolean>(false, { nonNullable: true }),
+    rememberMe: new FormControl<boolean>(false, {nonNullable: true}),
   })
 
-
+  constructor(private authService: AuthService) {
+  }
 
   get email() {
     return this.loginForm.get('email')
@@ -34,6 +37,6 @@ export class LoginComponent {
 
   onLoginSubmit() {
     const value = this.loginForm.value
-    // this.authService.login(value)
+    this.authService.login(value)
   }
 }
