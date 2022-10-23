@@ -21,7 +21,6 @@ export class LoginComponent {
       nonNullable: true,
       validators: [Validators.required, Validators.minLength(3)],
     }),
-    rememberMe: new FormControl<boolean>(false, {nonNullable: true}),
   })
 
   constructor(private authService: AuthService) {
