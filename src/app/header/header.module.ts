@@ -15,6 +15,7 @@ import {DialogModule} from "primeng/dialog";
 import { LoginComponent } from './header/header-tools/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
+import { RegisterUserComponent } from './header/header-tools/register-user/register-user.component';
 
 
 
@@ -26,7 +27,8 @@ import {PasswordModule} from "primeng/password";
     HeaderToolsComponent,
     CatalogComponent,
     ThemeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterUserComponent
   ],
   exports: [
     HeaderComponent

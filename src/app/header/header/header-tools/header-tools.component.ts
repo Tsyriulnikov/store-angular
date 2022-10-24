@@ -6,12 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-tools.component.scss']
 })
 export class HeaderToolsComponent implements OnInit {
-displayModal?:boolean
+loginDisplayModal?:boolean
+registerDisplayModal?:boolean
   constructor() { }
 
   ngOnInit(): void {
   }
-  showModalDialog() {
-    this.displayModal = true;
+  showModalDialogLogin() {
+    this.loginDisplayModal = true;
   }
+  showModalDialogRegister() {
+  this.loginDisplayModal = false;
+  this.registerDisplayModal = true;
+}
 }
