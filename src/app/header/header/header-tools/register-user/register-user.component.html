@@ -1,1 +1,51 @@
-<p>register-user works!</p>
+<div class="box">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" class="form">
+    <!-- name -->
+    <input
+      placeholder="Name"
+      pInputText
+      type="text"
+      formControlName="name"
+      required
+    />
+    <!-- Email -->
+
+    <input
+      placeholder="Email address"
+      pInputText
+      type="text"
+      formControlName="email"
+      required
+      [ngClass]="{
+          inputError: email!.invalid && (email!.dirty || email!.touched),
+          inputSuccess: email!.valid
+        }"
+    />
+
+    <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
+      <div *ngIf="email!.errors?.['required']">Email is required</div>
+      <div *ngIf="email!.errors?.['pattern']">Email incorrect pattern</div>
+    </div>
+
+    <!-- Password -->
+
+    <p-password
+      placeholder="Password"
+      type="password"
+      formControlName="password"
+      required
+      [ngClass]="{
+          inputError: password!.invalid && (password!.dirty || password!.touched),
+          inputSuccess: password!.valid
+        }"
+      [toggleMask]="true"
+    ></p-password>
+
+    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+      <div *ngIf="password!.errors?.['required']">Password is required.</div>
+      <div *ngIf="password!.errors?.['minlength']">Name must be at least 3 characters long.</div>
+    </div>
+
+    <button pButton type="submit" [disabled]="registerForm.invalid" class="submit-button" label="Register"></button>
+  </form>
+</div>
