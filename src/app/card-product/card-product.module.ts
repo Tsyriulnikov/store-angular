@@ -5,6 +5,7 @@ import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
 import {DataViewModule} from "primeng/dataview";
 import {DropdownModule} from "primeng/dropdown";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -16,12 +17,13 @@ import {DropdownModule} from "primeng/dropdown";
   exports: [
     CardProductComponent
   ],
-  imports: [
-    CommonModule,
-    CardModule,
-    ButtonModule,
-    DataViewModule,
-    DropdownModule
-  ]
+    imports: [
+        CommonModule,
+        CardModule,
+        ButtonModule,
+        DataViewModule,
+        DropdownModule,
+        RouterModule
+    ]
 })
 export class CardProductModule { }
