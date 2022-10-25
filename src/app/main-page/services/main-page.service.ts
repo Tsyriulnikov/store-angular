@@ -20,4 +20,6 @@ export class MainPageService {
         this.products$.next(products)
       })
   }
+
+
 }

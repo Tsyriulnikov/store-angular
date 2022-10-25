@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MainPageService} from "../../sercices/main-page.service";
+import {MainPageService} from "../../services/main-page.service";
 import {GetProductsResponse} from "../../models/main-page.models";
 import {Observable} from "rxjs";
 
