@@ -7,8 +7,12 @@ import {
 // import {LoginComponent} from "./auth/components/login/login.component";
 
 const routes: Routes = [
-  {path: '',component:MainPageComponent},
-  {path: 'product',component:ProductsDescriptionComponent}
+  // {path: '',component:MainPageComponent},
+  // {path: 'product',component:ProductsDescriptionComponent}
+  {path: '', redirectTo:'/products',pathMatch:'full'},
+  {path: 'products',component:MainPageComponent},
+  {path: 'products/:id',component:ProductsDescriptionComponent}
+
   // {path: 'profile', component: ProfileComponent},
   // {path: 'todos', component: TodosComponent},
   // {path: 'users', component: UsersComponent},
