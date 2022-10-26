@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {GetProductsResponse} from "../../../main-page/models/main-page.models";
-import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-card-product',
