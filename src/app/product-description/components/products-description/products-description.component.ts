@@ -10,19 +10,22 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./products-description.component.scss']
 })
 export class ProductsDescriptionComponent implements OnInit, OnDestroy {
-  singleProduct$!:GetProductsResponse
+  singleProduct$!: GetProductsResponse
   subscription!: Subscription
+
   constructor(
     private productsDescriptionService: ProductsDescriptionService,
-    private route:ActivatedRoute,
-    ) {
+    private route: ActivatedRoute,
+  ) {
   }
+
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id')!
     // this.singleProduct$ = this.productsDescriptionService.singleProduct$
-   this.subscription = this.productsDescriptionService.getSingleProduct(id)
+    this.subscription = this.productsDescriptionService.getSingleProduct(id)
       .subscribe(prod => this.singleProduct$ = prod);
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe()
   }
