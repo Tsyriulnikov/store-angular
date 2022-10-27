@@ -13,6 +13,7 @@ export class ProductsDescriptionComponent implements OnInit, OnDestroy {
   singleProduct$!: GetProductsResponse
   subscription!: Subscription
 
+
   constructor(
     private productsDescriptionService: ProductsDescriptionService,
     private route: ActivatedRoute,

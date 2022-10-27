@@ -23,7 +23,7 @@ import {RouterModule} from "@angular/router";
         ButtonModule,
         DataViewModule,
         DropdownModule,
-        RouterModule
+        RouterModule,
     ]
 })
 export class CardProductModule { }

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import {RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from "./main-page/components/main-page/main-page.component";
 import {
   ProductsDescriptionComponent
@@ -9,9 +9,9 @@ import {
 const routes: Routes = [
   // {path: '',component:MainPageComponent},
   // {path: 'product',component:ProductsDescriptionComponent}
-  {path: '', redirectTo:'/products',pathMatch:'full'},
-  {path: 'products',component:MainPageComponent},
-  {path: 'products/:id',component:ProductsDescriptionComponent}
+  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  {path: 'products', component: MainPageComponent},
+  {path: 'products/:id', component: ProductsDescriptionComponent}
 
   // {path: 'profile', component: ProfileComponent},
   // {path: 'todos', component: TodosComponent},
@@ -20,8 +20,8 @@ const routes: Routes = [
   // {path: '**', redirectTo: '/404'}
 
 // {
-    // path: 'login', component:LoginComponent
-    // loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+  // path: 'login', component:LoginComponent
+  // loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   // },
 
 ];
@@ -30,4 +30,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
