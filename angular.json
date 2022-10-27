@@ -10,7 +10,10 @@
           "style": "scss",
           "node_modules/primeicons/primeicons.css",
           "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-          "node_modules/primeng/resources/primeng.min.css"
+          "node_modules/primeng/resources/primeng.min.css",
+          "node_modules/swiper/css",
+          "node_modules/swiper/css/effect-coverflow",
+          "node_modules/swiper/css/pagination",
         }
       },
       "root": "",
