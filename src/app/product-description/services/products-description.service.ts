@@ -8,20 +8,28 @@ import {BehaviorSubject, Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductsDescriptionService {
-  singleProduct$!:GetProductsResponse
-
+  // singleProduct$!:GetProductsResponse
+  singleProduct$ = new BehaviorSubject<GetProductsResponse>({
+    id:1,
+    title:'',
+    price: 1,
+    description:'',
+    category: 1,
+    images : []
+  })
   constructor(private http: HttpClient) {
   }
 
-  // getSingleProduct(idProduct: number) {
-  //   this.http
-  //     .get<GetProductsResponse[]>(`${environment.baseUrl}products/${idProduct}`)
-  //     .subscribe((product: GetProductsResponse[]) => {
-  //       this.singleProduct$.next(product)
-  //     })
-  // }
-  getSingleProduct(idProduct: number): Observable<GetProductsResponse> {
-       return this.http.get<GetProductsResponse>(`${environment.baseUrl}products/${idProduct}`)
+  getSingleProduct(idProduct: number) {
+    this.http
+      .get<GetProductsResponse[]>(`${environment.baseUrl}products/${idProduct}`)
+      .subscribe((product: any) => {
+        this.singleProduct$.next(product)
+      })
   }
+
+  // getSingleProduct(idProduct: number): Observable<GetProductsResponse> {
+  //      return this.http.get<GetProductsResponse>(`${environment.baseUrl}products/${idProduct}`)
+  // }
 
 }
