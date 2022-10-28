@@ -5,17 +5,19 @@ import {GalleriaModule} from "primeng/galleria";
 import {CardModule} from "primeng/card";
 import { ImageGallaryComponent } from './components/products-description/image-gallary/image-gallary.component';
 import {SwiperModule} from "swiper/angular";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
     ProductsDescriptionComponent,
     ImageGallaryComponent
   ],
-  imports: [
-    CommonModule,
-    GalleriaModule,
-    CardModule,
-    SwiperModule,
-  ]
+    imports: [
+        CommonModule,
+        GalleriaModule,
+        CardModule,
+        SwiperModule,
+        ButtonModule,
+    ]
 })
 export class ProductDescriptionModule { }
