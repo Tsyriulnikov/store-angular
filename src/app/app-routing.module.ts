@@ -4,6 +4,7 @@ import {MainPageComponent} from "./main-page/components/main-page/main-page.comp
 import {
   ProductsDescriptionComponent
 } from "./product-description/components/products-description/products-description.component";
+import {CartComponent} from "./cart/components/cart/cart.component";
 // import {LoginComponent} from "./auth/components/login/login.component";
 
 const routes: Routes = [
@@ -11,9 +12,8 @@ const routes: Routes = [
   // {path: 'product',component:ProductsDescriptionComponent}
   {path: '', redirectTo: '/products', pathMatch: 'full'},
   {path: 'products', component: MainPageComponent},
-  {path: 'products/:id', component: ProductsDescriptionComponent}
-
-  // {path: 'profile', component: ProfileComponent},
+  {path: 'products/:id', component: ProductsDescriptionComponent},
+  {path: 'cart', component: CartComponent},
   // {path: 'todos', component: TodosComponent},
   // {path: 'users', component: UsersComponent},
   // {path: '404', component: PageNotFoundComponent},

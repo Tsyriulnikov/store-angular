@@ -8,8 +8,10 @@
             [draggable]="false" [resizable]="false">
     <app-login></app-login>
     <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check" (click)="showModalDialogRegister()" label="Register" styleClass="p-button-text"></p-button>
-      <p-button icon="pi pi-times" (click)="loginDisplayModal=false" label="Close" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-check" (click)="showModalDialogRegister()" label="Register"
+                styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-times" (click)="loginDisplayModal=false" label="Close"
+                styleClass="p-button-text"></p-button>
     </ng-template>
   </p-dialog>
 
@@ -17,7 +19,8 @@
             [draggable]="false" [resizable]="false">
     <app-register-user></app-register-user>
     <ng-template pTemplate="footer">
-       <p-button icon="pi pi-times" (click)="registerDisplayModal=false" label="Close" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-times" (click)="registerDisplayModal=false" label="Close"
+                styleClass="p-button-text"></p-button>
     </ng-template>
   </p-dialog>
 
@@ -25,6 +28,8 @@
           class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
   <button pButton pRipple type="button" icon="pi pi-heart"
           class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
-  <button pButton pRipple type="button" icon="pi pi-shopping-cart"
-          class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
+  <a routerLink="cart" routerLinkActive="activebutton">
+    <button pButton pRipple type="button" icon="pi pi-shopping-cart"
+            class="p-button-rounded p-button-secondary p-button-text p-button-lg"></button>
+  </a>
 </div>
