@@ -6,6 +6,7 @@ import {CardModule} from "primeng/card";
 import { ImageGallaryComponent } from './components/products-description/image-gallary/image-gallary.component';
 import {SwiperModule} from "swiper/angular";
 import {ButtonModule} from "primeng/button";
+import {ImageModule} from "primeng/image";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {ButtonModule} from "primeng/button";
         CardModule,
         SwiperModule,
         ButtonModule,
+        ImageModule,
     ]
 })
 export class ProductDescriptionModule { }

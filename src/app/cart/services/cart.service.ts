@@ -6,18 +6,23 @@ import {GetProductsResponse} from "../../main-page/models/main-page.models";
   providedIn: 'root'
 })
 export class CartService {
-  public cartItemList: GetProductsResponse[] = []
-  public productList = new BehaviorSubject<GetProductsResponse[]>([]);
+  cartItemList: GetProductsResponse[] = []
+  productList = new BehaviorSubject<GetProductsResponse[]>([]);
 
-  constructor() {
+  constructor() {}
+
+  getProducts(){
+    return this.productList.asObservable();
   }
-
   addtoCart(product: GetProductsResponse) {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList)
   }
+
+
+
 
   getTotalPrice(): number {
     let grandTotal = 0;

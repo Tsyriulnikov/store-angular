@@ -18,7 +18,6 @@ SwiperCore.use([FreeMode, Navigation, Thumbs]);
   })
 export class ImageGallaryComponent implements OnInit {
   @Input() images!:string[]
-
   thumbsSwiper: any;
   constructor() {
 

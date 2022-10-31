@@ -16,6 +16,7 @@ import { LoginComponent } from './header/header-tools/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import { RegisterUserComponent } from './header/header-tools/register-user/register-user.component';
+import {BadgeModule} from "primeng/badge";
 
 
 
@@ -42,7 +43,8 @@ import { RegisterUserComponent } from './header/header-tools/register-user/regis
         RippleModule,
         DialogModule,
         ReactiveFormsModule,
-        PasswordModule
+        PasswordModule,
+        BadgeModule
     ]
 })
 export class HeaderModule {
