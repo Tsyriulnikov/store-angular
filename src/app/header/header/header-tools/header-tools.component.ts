@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
 export class HeaderToolsComponent implements OnInit {
   loginDisplayModal?: boolean
   registerDisplayModal?: boolean
-  totalItemInCart: number = 0;
+  totalItemInCart: string = '0';
 
   constructor(private cartService: CartService) {
   }
@@ -19,7 +19,7 @@ export class HeaderToolsComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
-        this.totalItemInCart = res.length;
+        this.totalItemInCart = res.length.toString();
       })
   }
 
