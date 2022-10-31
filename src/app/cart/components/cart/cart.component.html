@@ -1,1 +1,6 @@
-<p>cart works!</p>
+<ng-container  *ngFor="let cartItem  of cartItems$ | async">
+<div>
+  {{cartItem.title}}
+</div>
+
+</ng-container>
