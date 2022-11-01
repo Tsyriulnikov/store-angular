@@ -21,14 +21,23 @@ export class CartService {
     console.log(this.cartItemList)
   }
 
-
-
-
   getTotalPrice(): number {
     let grandTotal = 0;
     this.cartItemList.map((a: GetProductsResponse) => {
       grandTotal += a.price;
     })
     return grandTotal;
+  }
+  removeAllCart(){
+    this.cartItemList = []
+    this.productList.next(this.cartItemList);
+  }
+  removeCartItem(product: GetProductsResponse){
+    this.cartItemList.map((item:GetProductsResponse, index:number)=>{
+      if(product.id=== item.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    this.productList.next(this.cartItemList);
   }
 }
