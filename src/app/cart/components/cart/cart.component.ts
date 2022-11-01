@@ -10,12 +10,17 @@ import {GetProductsResponse} from "../../../main-page/models/main-page.models";
 })
 export class CartComponent implements OnInit {
   cartItems$?: Observable<GetProductsResponse[]>
-
+  public products : GetProductsResponse[] = [];
   constructor(private cartService: CartService) {
   }
 
   ngOnInit(): void {
-    this.cartItems$ = this.cartService.productList
+    // this.cartItems$ = this.cartService.productList
+    this.cartService.getProducts()
+      .subscribe(res=>{
+        this.products = res;
+        // this.grandTotal = this.cartService.getTotalPrice();
+      })
   }
 
 }
