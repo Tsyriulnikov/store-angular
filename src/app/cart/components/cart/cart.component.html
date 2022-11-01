@@ -1,95 +1,63 @@
 <ng-container *ngIf="products.length !=0" xmlns="http://www.w3.org/1999/html">
-<!--  <div class="container">-->
-<!--    <div class="card-table">-->
-<!--      <div class="cart-product">-->
-<!--        <table class="table table-responsive">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th>Sr.No</th>-->
-<!--            <th>Product Name</th>-->
-<!--            <th>Product Image</th>-->
-<!--            <th>Description</th>-->
-<!--            <th>Price</th>-->
-<!--            <th>Quantity</th>-->
-<!--            <th>Total</th>-->
-<!--            <th>Action</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr *ngFor="let item of products; let i = index">-->
-<!--            <td>{{i + 1}}</td>-->
-<!--            <td>{{item.title}}</td>-->
-<!--            <td><img style="width: 120px;" [src]=item.images[0] alt=""></td>-->
-<!--            <td style="width: 25%;">{{item.description}}</td>-->
-<!--            <th style="width: 12%;">{{item.price}}</th>-->
-<!--            <td>-->
-<!--              &lt;!&ndash;              <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>&ndash;&gt;-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td colspan="4"></td>-->
-<!--            &lt;!&ndash;            <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>&ndash;&gt;-->
-<!--            <td>-->
-<!--              <button routerLink="/products" class="btn btn-primary">Shop More</button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <button class="btn btn-success">Checkout</button>-->
-<!--            </td>-->
-<!--            &lt;!&ndash;            <td><strong>Grand Total : ${{grandTotal}}</strong></td>&ndash;&gt;-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<div class="container">
-  <p-table [value]="products" responsiveLayout="scroll">
-    <ng-template pTemplate="caption">
-      <div class="flex align-items-center justify-content-between">
-        Products in cart
-      </div>
-    </ng-template>
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Action</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-      <tr>
-        <td>{{product.title}}</td>
-        <td><img [src]="product.images[0]" [alt]="product.name" width="100" class="shadow-4"/></td>
-        <td>{{product.price | currency:'USD'}}</td>
-        <td> <p-button icon="pi pi-trash" iconPos="left" (onClick)="removeItem(product)"></p-button>
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="summary">
-      <div class="flex align-items-center justify-content-between">
-        In total there are {{products ? products.length : 0 }} products.
-        <p-button label="Empty cart" icon="pi pi-trash" iconPos="left" (onClick)="emptycart()"></p-button>
-      </div>
-    </ng-template>
-  </p-table>
-</div>
+  <div class="container">
+    <p-table [value]="products" responsiveLayout="scroll" tableStyleClass="table-block">
+      <ng-template pTemplate="caption">
+        <div>
+          Products in cart
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>
+            <a routerLink="/products/{{product.id}}" routerLinkActive="activebutton">
+              {{product.title}}
+            </a>
+          </td>
+          <td>
+            <a routerLink="/products/{{product.id}}" routerLinkActive="activebutton">
+              <img [src]="product.images[0]" [alt]="product.name" width="100" class="shadow-4"/>
+            </a>
+          </td>
+          <td>{{product.price | currency:'USD'}}</td>
+          <td>
+            <p-button icon="pi pi-trash" iconPos="left" (onClick)="removeItem(product)"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="total-block">
+          <span><b>Grand Total : ${{grandTotal}}</b></span>
+        </div>
+        <div class="bottom">
+          <p-button label="Empty cart" icon="pi pi-trash" styleClass="p-button-sm" iconPos="left"
+                    (onClick)="emptycart()"
+          ></p-button>
+          <p-button label="Buy now" icon="pi pi-check" styleClass="p-button-sm p-button-success" iconPos="left"
+          ></p-button>
+        </div>
+      </ng-template>
+    </p-table>
+  </div>
 
 </ng-container>
 
 
 <ng-container *ngIf="products.length ==0">
   <div class="container">
-    <div class="card">
-      <h5 class="card-title">My Cart</h5>
-    </div>
     <div class="center">
       <h4>Your cart is empty!</h4>
-      <h6>Add item to it now</h6>
-      <button routerLink="/products" class="btn btn-primary">Shop Now</button>
+      <p-button label="Shop now" icon="pi pi-shopping-bag" iconPos="left"
+                routerLink="/products" class="btn btn-primary"></p-button>
     </div>
   </div>
 
 </ng-container>
-<!--</ng-container>-->
+
