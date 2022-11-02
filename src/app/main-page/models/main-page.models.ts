@@ -3,6 +3,10 @@ export interface GetProductsResponse {
   title: string
   price: number
   description: string
-  category: number
+  category: {
+    id:number
+    name:string
+    image:string
+  }
   images: string[]
 }
