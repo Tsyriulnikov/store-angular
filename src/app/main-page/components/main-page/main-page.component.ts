@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MainPageService} from "../../services/main-page.service";
 import {GetProductsResponse} from "../../models/main-page.models";
-import {Observable} from "rxjs";
+import {filter, map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-main-page',
@@ -10,11 +10,15 @@ import {Observable} from "rxjs";
 })
 export class MainPageComponent implements OnInit {
   allProducts$?: Observable<GetProductsResponse[]>
+  searchKey:string ="";
 
   constructor(private mainPageService: MainPageService) {
   }
 
   ngOnInit(): void {
+    // this.mainPageService.search.subscribe((val:string)=>{
+    //   this.searchKey = val;
+    // })
     this.allProducts$=this.mainPageService.products$
     this.mainPageService.getProducts()
   }

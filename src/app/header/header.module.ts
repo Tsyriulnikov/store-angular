@@ -13,7 +13,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
 import {DialogModule} from "primeng/dialog";
 import { LoginComponent } from './header/header-tools/login/login.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import { RegisterUserComponent } from './header/header-tools/register-user/register-user.component';
 import {BadgeModule} from "primeng/badge";
@@ -44,7 +44,8 @@ import {BadgeModule} from "primeng/badge";
         DialogModule,
         ReactiveFormsModule,
         PasswordModule,
-        BadgeModule
+        BadgeModule,
+        FormsModule
     ]
 })
 export class HeaderModule {

@@ -9,6 +9,8 @@ import {GetProductsResponse} from "../models/main-page.models";
 })
 export class MainPageService {
   products$ = new BehaviorSubject<GetProductsResponse[]>([])
+  public search = new BehaviorSubject<string>("");
+  searchKey: string = "";
 
   constructor(private http: HttpClient) {
   }
@@ -21,5 +23,18 @@ export class MainPageService {
       })
   }
 
+  searchProduct() {
+    // this.search.subscribe((val: string) => {
+    //   this.searchKey = val;
+    // })
+    this.searchKey = 'new title';
+    this.products$
+      .pipe(map((item) => this.searchKey.length === 0 ?
+        item : item.filter(el => el.title === this.searchKey)))
 
+      .subscribe((products: GetProductsResponse[]) => {
+        this.products$.next(products)
+      })
+  console.log(this.searchKey)
+  }
 }

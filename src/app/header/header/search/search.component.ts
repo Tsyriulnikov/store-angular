@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainPageService} from "../../../main-page/services/main-page.service";
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-
-  constructor() { }
+  public searchTerm !: string;
+  searchKey:string ="";
+  constructor(private mainPageService:MainPageService) { }
 
   ngOnInit(): void {
+
+  }
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.mainPageService.search.next(this.searchTerm);
+    this.mainPageService.searchProduct()
   }
 
 }

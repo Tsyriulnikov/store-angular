@@ -14,7 +14,11 @@ export class ProductsDescriptionService {
     title:'',
     price: 1,
     description:'',
-    category: 1,
+    category: {
+      id:1,
+      name:'',
+      image:'',
+    },
     images : []
   })
   constructor(private http: HttpClient) {
