@@ -9,7 +9,7 @@ import {filter, map, Observable} from "rxjs";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  allProducts$?: Observable<GetProductsResponse[]>
+  allProducts$!: Observable<GetProductsResponse[]>
   searchKey:string ="";
 
   constructor(private mainPageService: MainPageService) {

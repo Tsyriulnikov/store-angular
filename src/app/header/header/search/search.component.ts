@@ -8,16 +8,13 @@ import {MainPageService} from "../../../main-page/services/main-page.service";
 })
 export class SearchComponent implements OnInit {
   public searchTerm !: string;
-  searchKey:string ="";
   constructor(private mainPageService:MainPageService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
   search(event:any){
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    this.mainPageService.search.next(this.searchTerm);
-    this.mainPageService.searchProduct()
+    this.searchTerm = (event.target as HTMLInputElement).value
+    this.mainPageService.search.next(this.searchTerm)
+    this.mainPageService.searchProduct(this.searchTerm)
   }
 
 }

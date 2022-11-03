@@ -23,18 +23,18 @@ export class MainPageService {
       })
   }
 
-  searchProduct() {
-    // this.search.subscribe((val: string) => {
-    //   this.searchKey = val;
-    // })
-    this.searchKey = 'new title';
+  searchProduct(searchKey:string) {
+     this.search.subscribe((val: string) => {
+       this.search.next(val)
+     })
+    // this.searchKey = searchKey;
     this.products$
-      .pipe(map((item) => this.searchKey.length === 0 ?
-        item : item.filter(el => el.title === this.searchKey)))
+      .pipe(map((item) => this.search.getValue().length === 0 ?
+        item : item.filter(el => el.title === this.search.getValue())))
 
       .subscribe((products: GetProductsResponse[]) => {
         this.products$.next(products)
       })
-  console.log(this.searchKey)
+  // console.log(this.searchKey)
   }
 }
