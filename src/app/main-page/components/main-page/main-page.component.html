@@ -1,5 +1,5 @@
 <div class="main-page-block">
-  <ng-container *ngFor="let prod of allProducts$ | async">
+  <ng-container *ngFor="let prod of allProducts$ | filter:searchKey">
     <app-card-product
       [prod]="prod"
     ></app-card-product>

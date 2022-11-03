@@ -5,6 +5,7 @@ import {ButtonModule} from "primeng/button";
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {CardProductModule} from "../card-product/card-product.module";
 import {CartModule} from "../cart/cart.module";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {CartModule} from "../cart/cart.module";
     CardModule,
     ButtonModule,
     CardProductModule,
-    CartModule
+    CartModule,
+    Ng2SearchPipeModule
   ]
 })
 export class MainPageModule {

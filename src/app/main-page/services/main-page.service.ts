@@ -16,26 +16,7 @@ export class MainPageService {
   }
 
   getProducts() {
-    this.http
+    return this.http
       .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
-      .subscribe((products: GetProductsResponse[]) => {
-        this.products$.next(products)
-      })
-  }
-
-  searchProduct() {
-     this.search.subscribe((val: string) => {
-       this.searchKey=val
-       console.log(this.searchKey)
-     })
-    // this.searchKey = searchKey;
-    this.products$
-      .pipe(map((item) => this.searchKey.length === 0 ?
-        item : item.map(el => el.title === this.searchKey ? el : el)))
-
-      .subscribe((products: GetProductsResponse[]) => {
-        this.products$.next(products)
-      })
-  // console.log(this.searchKey)
   }
 }

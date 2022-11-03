@@ -12,9 +12,8 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {}
   search(event:any){
-    this.searchTerm = (event.target as HTMLInputElement).value
-    this.mainPageService.search.next(this.searchTerm)
-    this.mainPageService.searchProduct()
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.mainPageService.search.next(this.searchTerm);
   }
 
 }
