@@ -6,6 +6,8 @@ import {MainPageComponent} from './components/main-page/main-page.component';
 import {CardProductModule} from "../card-product/card-product.module";
 import {CartModule} from "../cart/cart.module";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {NotificationService} from "./services/notification.service";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -21,8 +23,9 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     ButtonModule,
     CardProductModule,
     CartModule,
-    Ng2SearchPipeModule
-  ]
-})
+    Ng2SearchPipeModule,
+    SharedModule
+  ],
+  })
 export class MainPageModule {
 }

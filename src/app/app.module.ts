@@ -7,6 +7,8 @@ import {MainPageModule} from "./main-page/main-page.module";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthModule} from "./auth/auth.module";
 import {ProductDescriptionModule} from "./product-description/product-description.module";
+import { SharedModule } from './shared/shared.module'
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import {ProductDescriptionModule} from "./product-description/product-descriptio
     HeaderModule,
     HttpClientModule,
     ProductDescriptionModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

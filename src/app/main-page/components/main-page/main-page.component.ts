@@ -13,6 +13,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
   allProducts$!: GetProductsResponse[]
   searchKey: string = "";
   allProductsSubscribe!: Subscription
+  error: any
 
   constructor(private mainPageService: MainPageService) {
   }
@@ -21,9 +22,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
     this.allProductsSubscribe = this.mainPageService
       .getProducts()
       .subscribe((products: GetProductsResponse[]) => (this.allProducts$ = products))
-    this.mainPageService.search.subscribe((val: any) => {
+    this.mainPageService.search.subscribe((val: string) => {
       this.searchKey = val;
     })
+
   }
 
   ngOnDestroy() {

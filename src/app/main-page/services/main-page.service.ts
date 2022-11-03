@@ -1,22 +1,32 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, map} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {BehaviorSubject, catchError, EMPTY, map, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {GetProductsResponse} from "../models/main-page.models";
+import {NotificationService} from "./notification.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainPageService {
-  products$ = new BehaviorSubject<GetProductsResponse[]>([])
+  error$ = new BehaviorSubject<any>('')
   search = new BehaviorSubject<string>("");
   searchKey: string = "";
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationService) {}
 
   getProducts() {
     return this.http
-      .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
+      .get<GetProductsResponse[]>(`${environment.baseUrl}product`)
+      .pipe(
+        catchError(this.errorHandler.bind(this))
+      )
+  }
+
+  private errorHandler(err: HttpErrorResponse) {
+    this.notificationService.handleError(err.message)
+    return EMPTY
   }
 }
