@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {BehaviorSubject, catchError, EMPTY, map, throwError} from "rxjs";
+import {BehaviorSubject, catchError, EMPTY} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {GetProductsResponse} from "../models/main-page.models";
 import {NotificationService} from "./notification.service";
@@ -19,7 +19,7 @@ export class MainPageService {
 
   getProducts() {
     return this.http
-      .get<GetProductsResponse[]>(`${environment.baseUrl}product`)
+      .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
       .pipe(
         catchError(this.errorHandler.bind(this))
       )
