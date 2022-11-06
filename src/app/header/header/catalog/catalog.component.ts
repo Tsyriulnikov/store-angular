@@ -14,8 +14,8 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      // {label: 'Add', icon: 'pi pi-refresh'},
-      // {label: 'Delete', icon: 'pi pi-times'},
+      {label: 'Add', icon: 'pi pi-refresh'},
+      {label: 'Delete', icon: 'pi pi-times'},
       // {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
       // {separator: true},
       // {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
