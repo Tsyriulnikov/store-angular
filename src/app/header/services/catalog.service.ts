@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {GetProductsResponse} from "../../main-page/models/main-page.models";
 import {environment} from "../../../environments/environment";
 import {catchError, EMPTY} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {NotificationService} from "../../main-page/services/notification.service";
+import {GetCategoriesResponse} from "../models/catalog.models";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class CatalogService {
 
   getCategories() {
     return this.http
-      .get<GetProductsResponse[]>(`${environment.baseUrl}categories`)
+      .get<GetCategoriesResponse[]>(`${environment.baseUrl}categories`)
       .pipe(
         catchError(this.errorHandler.bind(this))
       )

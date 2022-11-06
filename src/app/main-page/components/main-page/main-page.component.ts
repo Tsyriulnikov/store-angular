@@ -9,11 +9,9 @@ import {filter, map, Observable, Subscription} from "rxjs";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit, OnDestroy {
-  // allProducts$!: Observable<GetProductsResponse[]>
   allProducts$!: GetProductsResponse[]
   searchKey: string = "";
   allProductsSubscribe!: Subscription
-  error: any
 
   constructor(private mainPageService: MainPageService) {
   }
