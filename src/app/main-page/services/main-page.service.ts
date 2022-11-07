@@ -11,6 +11,7 @@ import {NotificationService} from "./notification.service";
 export class MainPageService {
   error$ = new BehaviorSubject<any>('')
   search = new BehaviorSubject<string>("");
+  category$ = new BehaviorSubject<string>("");
   searchKey: string = "";
 
   constructor(

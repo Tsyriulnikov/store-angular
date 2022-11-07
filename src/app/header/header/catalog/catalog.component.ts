@@ -3,6 +3,7 @@ import {MenuItem} from 'primeng/api';
 import {CatalogService} from "../../services/catalog.service";
 import {map, Subscription} from "rxjs";
 import {GetCategoriesResponse} from "../../models/catalog.models";
+import {MainPageService} from "../../../main-page/services/main-page.service";
 
 @Component({
   selector: 'app-catalog',
@@ -12,32 +13,27 @@ import {GetCategoriesResponse} from "../../models/catalog.models";
 export class CatalogComponent implements OnInit, OnDestroy {
   allCategories$!: GetCategoriesResponse[]
   allCategoriesSubscribe!: Subscription
-  items!: MenuItem[];
-categories!:Array<any>
+  categorySelected!:string
 
-  constructor(private catalogService: CatalogService) {
+  constructor(
+    private catalogService: CatalogService,
+    private mainPageService:MainPageService
+  ) {
   }
 
   ngOnInit() {
     this.allCategoriesSubscribe = this.catalogService
       .getCategories()
       .subscribe((categories: GetCategoriesResponse[]) => {
-        (this.allCategories$ = categories)
-for (const el of categories ) {
-  this.items.push({label: el.name, icon: 'pi pi-refresh'})
-  // this.items = [
-  //   {label: categories[0].name, icon: 'pi pi-refresh'},
-  //   {label: 'Delete', icon: 'pi pi-times'},
-    // {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
-    // {separator: true},
-    // {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
-  // ];
-}
-})
-
+        (this.allCategories$ = categories)})
   }
 
   ngOnDestroy() {
     this.allCategoriesSubscribe.unsubscribe()
+  }
+
+  handlerSelectCategory($event:any ) {
+    console.log($event.value.name)
+    this.mainPageService.getProducts()
   }
 }

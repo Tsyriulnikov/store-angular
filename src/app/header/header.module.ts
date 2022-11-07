@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PasswordModule} from "primeng/password";
 import { RegisterUserComponent } from './header/header-tools/register-user/register-user.component';
 import {BadgeModule} from "primeng/badge";
+import {DropdownModule} from "primeng/dropdown";
 
 
 
@@ -34,19 +35,20 @@ import {BadgeModule} from "primeng/badge";
   exports: [
     HeaderComponent
   ],
-    imports: [
-        CommonModule,
-        ButtonModule,
-        SplitButtonModule,
-        BrowserAnimationsModule,
-        InputTextModule,
-        RippleModule,
-        DialogModule,
-        ReactiveFormsModule,
-        PasswordModule,
-        BadgeModule,
-        FormsModule
-    ]
+  imports: [
+    CommonModule,
+    ButtonModule,
+    SplitButtonModule,
+    BrowserAnimationsModule,
+    InputTextModule,
+    RippleModule,
+    DialogModule,
+    ReactiveFormsModule,
+    PasswordModule,
+    BadgeModule,
+    FormsModule,
+    DropdownModule
+  ]
 })
 export class HeaderModule {
 }
