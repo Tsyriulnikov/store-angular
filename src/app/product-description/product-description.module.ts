@@ -8,6 +8,8 @@ import {SwiperModule} from "swiper/angular";
 import {ButtonModule} from "primeng/button";
 import {ImageModule} from "primeng/image";
 
+
+
 @NgModule({
   declarations: [
     ProductsDescriptionComponent,
