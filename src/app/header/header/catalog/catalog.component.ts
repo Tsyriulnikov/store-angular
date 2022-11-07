@@ -33,7 +33,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
   }
 
   handlerSelectCategory($event:any ) {
-    console.log($event.value.name)
-    this.mainPageService.getProducts()
+    this.mainPageService.category$.next($event.value.name)
   }
 }

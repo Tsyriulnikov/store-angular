@@ -26,6 +26,15 @@ export class MainPageService {
       )
   }
 
+  getProductsByCategory() {
+    return this.http
+      .get<GetProductsResponse[]>(`${environment.baseUrl}categories/1/products`)
+      .pipe(
+        catchError(this.errorHandler.bind(this))
+      )
+  }
+
+
   private errorHandler(err: HttpErrorResponse) {
     this.notificationService.handleError(err.message)
     return EMPTY
