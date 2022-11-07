@@ -21,18 +21,17 @@ export class MainPageComponent implements OnInit, OnDestroy {
       .getProducts()
       .subscribe((products: GetProductsResponse[]) => (this.allProducts$ = products))
 
-
     this.mainPageService.search.subscribe((val: string) => {
       this.searchKey = val;
     })
 
-    this.mainPageService.category$
-               .subscribe((cat: string) => {
-               console.log(cat)
-              this.mainPageService
-                .getProductsByCategory()
-                .subscribe((products: GetProductsResponse[]) => (this.allProducts$ = products))
-               })
+    // this.mainPageService.category$
+    //            .subscribe((cat: string) => {
+    //            console.log(cat)
+    //           this.mainPageService
+    //             .getProductsByCategory()
+    //             .subscribe((products: GetProductsResponse[]) => (this.allProducts$ = products))
+    //            })
 
   }
 

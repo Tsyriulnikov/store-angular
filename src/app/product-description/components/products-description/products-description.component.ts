@@ -23,10 +23,11 @@ export class ProductsDescriptionComponent implements OnInit {
   ngOnInit(): void {
     this.singleProduct$=this.productsDescriptionService.singleProduct$
     const id = +this.route.snapshot.paramMap.get('id')!
+
     this.productsDescriptionService.getSingleProduct(id)
     this.cartItems$ = this.cartService.productList
   }
-  addtocart(item: any) {
+  addToCart(item: GetProductsResponse) {
     this.cartService.addtoCart(item);
   }
 

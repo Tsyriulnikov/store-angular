@@ -13,6 +13,7 @@ export class CatalogService {
   constructor(private http:HttpClient,
               private notificationService: NotificationService) { }
 
+
   getCategories() {
     return this.http
       .get<GetCategoriesResponse[]>(`${environment.baseUrl}categories`)
@@ -20,6 +21,8 @@ export class CatalogService {
         catchError(this.errorHandler.bind(this))
       )
   }
+
+
 
   private errorHandler(err: HttpErrorResponse) {
     this.notificationService.handleError(err.message)

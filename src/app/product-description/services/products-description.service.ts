@@ -32,8 +32,4 @@ export class ProductsDescriptionService {
       })
   }
 
-  // getSingleProduct(idProduct: number): Observable<GetProductsResponse> {
-  //      return this.http.get<GetProductsResponse>(`${environment.baseUrl}products/${idProduct}`)
-  // }
-
 }
