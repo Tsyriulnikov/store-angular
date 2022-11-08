@@ -1,26 +1,31 @@
-<swiper
-  style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
-  [spaceBetween]="10"
-  [navigation]="true"
-  [thumbs]="{ swiper: thumbsSwiper }"
-  class="mySwiper2">
-  <ng-template  swiperSlide *ngFor="let image of images">
+<!--<swiper-->
+<!--  style="&#45;&#45;swiper-navigation-color: #fff;&#45;&#45;swiper-pagination-color: #fff"-->
+<!--  [spaceBetween]="10"-->
+<!--  [navigation]="true"-->
+<!--  [thumbs]="{ swiper: thumbsSwiper }"-->
+<!--  class="mySwiper2">-->
+<!--  <ng-template  swiperSlide *ngFor="let image of images">-->
+<!--&lt;!&ndash;      <img [src]=image>&ndash;&gt;-->
+<!--    <p-image [src]=image alt="Image" [preview]="true"></p-image>-->
+<!--  </ng-template>-->
+<!--</swiper>-->
+
+<!--<swiper-->
+<!--  (swiper)="thumbsSwiper = $event"-->
+<!--  [spaceBetween]="10"-->
+<!--  [slidesPerView]="4"-->
+<!--  [freeMode]="true"-->
+<!--  [watchSlidesProgress]="true"-->
+<!--  class="mySwiper"-->
+<!--&gt;-->
+<!--  <ng-template swiperSlide *ngFor="let image of images">-->
 <!--      <img [src]=image>-->
-    <p-image [src]=image alt="Image" [preview]="true"></p-image>
-  </ng-template>
-</swiper>
+<!--  </ng-template>-->
+<!--</swiper>-->
 
-<swiper
-  (swiper)="thumbsSwiper = $event"
-  [spaceBetween]="10"
-  [slidesPerView]="4"
-  [freeMode]="true"
-  [watchSlidesProgress]="true"
-  class="mySwiper"
->
-  <ng-template swiperSlide *ngFor="let image of images">
-      <img [src]=image>
-  </ng-template>
-</swiper>
-
-
+<!--<slideshow [height]="'100%'"-->
+<!--           [minHeight]="'525px'"-->
+<!--           [autoPlay]="true"-->
+<!--           [showArrows]="false"-->
+<!--           [imageUrls]="images">-->
+<!--</slideshow>-->

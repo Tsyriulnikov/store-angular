@@ -7,6 +7,7 @@ import { ImageGallaryComponent } from './components/products-description/image-g
 import {SwiperModule} from "swiper/angular";
 import {ButtonModule} from "primeng/button";
 import {ImageModule} from "primeng/image";
+import {SlideshowModule} from "ng-simple-slideshow";
 
 
 
@@ -15,13 +16,14 @@ import {ImageModule} from "primeng/image";
     ProductsDescriptionComponent,
     ImageGallaryComponent
   ],
-    imports: [
-        CommonModule,
-        GalleriaModule,
-        CardModule,
-        SwiperModule,
-        ButtonModule,
-        ImageModule,
-    ]
+  imports: [
+    CommonModule,
+    GalleriaModule,
+    CardModule,
+    SwiperModule,
+    ButtonModule,
+    ImageModule,
+    SlideshowModule,
+  ]
 })
 export class ProductDescriptionModule { }
