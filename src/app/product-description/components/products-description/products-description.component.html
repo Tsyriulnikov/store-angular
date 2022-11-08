@@ -1,13 +1,13 @@
-<!--<div class="container">-->
-<ng-container *ngIf="singleProduct$ | async let prod">
+<ng-container *ngIf="singleProduct$ let prod">
   <div class="container">
     <div class="title-block">
       <h1>{{prod.title}}</h1>
     </div>
     <div class="main-block">
-      <div class="img-block">
-        <!--        <app-image-gallary [images]="prod.images"></app-image-gallary>-->
-<!--        <slideshow [imageUrls]="prod.images"></slideshow>-->
+      <div class="img-block-container">
+        <div class="img-block" *ngFor="let images of prod.images">
+          <p-image [src]="images" alt="Image" width="250" [preview]="true"></p-image>
+        </div>
       </div>
       <div class="description-block">
         {{prod.description}}
@@ -21,7 +21,7 @@
     </div>
   </div>
 </ng-container>
-<!--</div>-->
+
 
 
 

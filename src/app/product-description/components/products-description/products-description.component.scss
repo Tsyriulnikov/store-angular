@@ -20,8 +20,14 @@ div {
   justify-content: flex-start;
 }
 
+.img-block-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
 .img-block {
-  width: 40%;
+  width: 100%;
 }
 
 .description-block {
@@ -38,8 +44,4 @@ div {
     height: 100%;
     align-items: center;
   }
-    .button {
-
-    }
-
 }

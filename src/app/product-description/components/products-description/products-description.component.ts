@@ -10,25 +10,29 @@ import {CartService} from "../../../cart/services/cart.service";
   templateUrl: './products-description.component.html',
   styleUrls: ['./products-description.component.scss']
 })
-export class ProductsDescriptionComponent implements OnInit {
-  singleProduct$?: Observable<GetProductsResponse>
-  cartItems$?: Observable<GetProductsResponse[]>
+export class ProductsDescriptionComponent implements OnInit, OnDestroy {
+  singleProduct$!: GetProductsResponse
+  cartItems$!: Observable<GetProductsResponse[]>
+  subscribeSingleProduct!: Subscription
+
   constructor(
     private productsDescriptionService: ProductsDescriptionService,
     private route: ActivatedRoute,
-    private cartService:CartService
-  ) {
+    private cartService: CartService) {
   }
 
   ngOnInit(): void {
-    this.singleProduct$=this.productsDescriptionService.singleProduct$
     const id = +this.route.snapshot.paramMap.get('id')!
-
-    this.productsDescriptionService.getSingleProduct(id)
     this.cartItems$ = this.cartService.productList
+    this.subscribeSingleProduct = this.productsDescriptionService.getSingleProduct(id)
+      .subscribe((product: GetProductsResponse) => (this.singleProduct$ = product))
   }
+
   addToCart(item: GetProductsResponse) {
     this.cartService.addtoCart(item);
   }
 
+  ngOnDestroy() {
+    this.subscribeSingleProduct.unsubscribe()
+  }
 }
