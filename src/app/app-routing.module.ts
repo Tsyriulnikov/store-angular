@@ -5,7 +5,7 @@ import {
   ProductsDescriptionComponent
 } from "./product-description/components/products-description/products-description.component";
 import {CartComponent} from "./cart/components/cart/cart.component";
-// import {LoginComponent} from "./auth/components/login/login.component";
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/products', pathMatch: 'full'},
@@ -14,12 +14,6 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   // {path: '404', component: PageNotFoundComponent},
   // {path: '**', redirectTo: '/404'}
-
-// {
-  // path: 'login', component:LoginComponent
-  // loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-  // },
-
 ];
 
 @NgModule({

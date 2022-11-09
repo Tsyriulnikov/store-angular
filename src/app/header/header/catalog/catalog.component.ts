@@ -13,11 +13,11 @@ import {MainPageService} from "../../../main-page/services/main-page.service";
 export class CatalogComponent implements OnInit, OnDestroy {
   allCategories$!: GetCategoriesResponse[]
   allCategoriesSubscribe!: Subscription
-  categorySelected!:string
+  categorySelected!: string
 
   constructor(
     private catalogService: CatalogService,
-    private mainPageService:MainPageService
+    private mainPageService: MainPageService
   ) {
   }
 
@@ -25,14 +25,15 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.allCategoriesSubscribe = this.catalogService
       .getCategories()
       .subscribe((categories: GetCategoriesResponse[]) => {
-        (this.allCategories$ = categories)})
+        (this.allCategories$ = categories)
+      })
   }
 
   ngOnDestroy() {
     this.allCategoriesSubscribe.unsubscribe()
   }
 
-  handlerSelectCategory($event:any ) {
-    this.mainPageService.category$.next($event.value.name)
+  handlerSelectCategory($event: any) {
+    this.mainPageService.category$.next($event.value.id)
   }
 }

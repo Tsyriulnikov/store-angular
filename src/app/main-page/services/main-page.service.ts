@@ -10,28 +10,33 @@ import {NotificationService} from "./notification.service";
 })
 export class MainPageService {
   error$ = new BehaviorSubject<any>('')
-  search = new BehaviorSubject<string>("");
-  category$ = new BehaviorSubject<string>("");
+  search = new BehaviorSubject<string>('');
+  category$ = new BehaviorSubject<string>('');
   searchKey: string = "";
+  allProducts$ = new BehaviorSubject<GetProductsResponse[]>([])
+  categoryProducts$ = new BehaviorSubject<GetProductsResponse[]>([])
 
   constructor(
     private http: HttpClient,
-    private notificationService: NotificationService) {}
+    private notificationService: NotificationService) {
+  }
 
   getProducts() {
-    return this.http
+    this.http
       .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
       .pipe(
         catchError(this.errorHandler.bind(this))
       )
+      .subscribe((products) => this.allProducts$.next(products))
   }
 
-  getProductsByCategory() {
-    return this.http
-      .get<GetProductsResponse[]>(`${environment.baseUrl}categories/1/products`)
+  getProductsByCategory(idCategory:string) {
+    this.http
+      .get<GetProductsResponse[]>(`${environment.baseUrl}categories/${idCategory}/products`)
       .pipe(
         catchError(this.errorHandler.bind(this))
       )
+      .subscribe((products) => this.categoryProducts$.next(products))
   }
 
 
