@@ -11,10 +11,11 @@ import {merge, Observable, Subscription} from "rxjs";
 export class MainPageComponent implements OnInit, OnDestroy {
   currentProducts!: GetProductsResponse[]
   searchKey: string = "";
-  allProductsSubscribe!: Subscription
+  currentProductsSubscribe!: Subscription
 
   allProducts$!: Observable<GetProductsResponse[]>
   categoryProducts$!: Observable<GetProductsResponse[]>
+  currentProducts$!: Observable<GetProductsResponse[]>
 
 
   constructor(private mainPageService: MainPageService) {
@@ -35,13 +36,11 @@ export class MainPageComponent implements OnInit, OnDestroy {
         this.mainPageService.getProductsByCategory(idCategory)
       })
 
-    this.allProducts$ = merge(this.allProducts$, this.categoryProducts$)
-   this.allProductsSubscribe =  this.allProducts$.subscribe(products => this.currentProducts = products)
-
-
+    this.currentProducts$ = merge(this.allProducts$, this.categoryProducts$)
+    this.currentProductsSubscribe = this.currentProducts$.subscribe(products => this.currentProducts = products)
   }
 
   ngOnDestroy() {
-    this.allProductsSubscribe.unsubscribe()
+    this.currentProductsSubscribe.unsubscribe()
   }
 }
