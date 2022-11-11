@@ -36,7 +36,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
         this.mainPageService.getProductsByCategory(idCategory)
       })
 
-    this.currentProducts$ = merge(this.allProducts$, this.categoryProducts$)
+    this.currentProducts$ = merge(this.mainPageService.allProducts$, this.mainPageService.categoryProducts$)
     this.currentProductsSubscribe = this.currentProducts$.subscribe(products => this.currentProducts = products)
   }
 
