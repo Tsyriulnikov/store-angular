@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MainPageService} from "../../services/main-page.service";
 import {GetProductsResponse} from "../../models/main-page.models";
-import {merge, Observable, Subscription} from "rxjs";
+import {merge, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-main-page',
@@ -13,17 +13,10 @@ export class MainPageComponent implements OnInit, OnDestroy {
   searchKey: string = "";
   currentProductsSubscribe!: Subscription
 
-  allProducts$!: Observable<GetProductsResponse[]>
-  categoryProducts$!: Observable<GetProductsResponse[]>
-  currentProducts$!: Observable<GetProductsResponse[]>
-
-
   constructor(private mainPageService: MainPageService) {
   }
 
   ngOnInit(): void {
-    this.allProducts$ = this.mainPageService.allProducts$
-    this.categoryProducts$ = this.mainPageService.categoryProducts$
     this.mainPageService.getProducts()
 
     this.mainPageService.search.subscribe((val: string) => {
@@ -36,8 +29,8 @@ export class MainPageComponent implements OnInit, OnDestroy {
         this.mainPageService.getProductsByCategory(idCategory)
       })
 
-    this.currentProducts$ = merge(this.mainPageService.allProducts$, this.mainPageService.categoryProducts$)
-    this.currentProductsSubscribe = this.currentProducts$.subscribe(products => this.currentProducts = products)
+    this.currentProductsSubscribe = merge(this.mainPageService.allProducts$, this.mainPageService.categoryProducts$)
+      .subscribe((products: GetProductsResponse[]) => this.currentProducts = products)
   }
 
   ngOnDestroy() {
