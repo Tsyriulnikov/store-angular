@@ -25,7 +25,7 @@ export class MainPageService {
     this.http
       .get<GetProductsResponse[]>(`${environment.baseUrl}products`)
       .pipe(
-
+        catchError(this.errorHandler.bind(this))
       )
       .subscribe((products) => this.allProducts$.next(products))
   }
@@ -34,7 +34,7 @@ export class MainPageService {
     this.http
       .get<GetProductsResponse[]>(`${environment.baseUrl}categories/${idCategory}/products`)
       .pipe(
-
+        catchError(this.errorHandler.bind(this))
       )
       .subscribe((products) => this.categoryProducts$.next(products))
   }
