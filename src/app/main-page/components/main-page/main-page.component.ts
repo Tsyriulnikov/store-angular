@@ -36,4 +36,5 @@ export class MainPageComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.currentProductsSubscribe.unsubscribe()
   }
+
 }
