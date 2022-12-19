@@ -23,7 +23,14 @@ export class MainPageComponent implements OnInit, OnDestroy {
       this.searchKey = val;
     })
 
+    this.mainPageService.category$
+      .subscribe((idCategory: string) => {
+        !!idCategory &&
+        this.mainPageService.getProductsByCategory(idCategory)
+      })
 
+    this.currentProductsSubscribe = merge(this.mainPageService.allProducts$, this.mainPageService.categoryProducts$)
+      .subscribe((products: GetProductsResponse[]) => this.currentProducts = products)
   }
 
   ngOnDestroy() {
